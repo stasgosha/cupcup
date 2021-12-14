@@ -10,18 +10,22 @@ body{
 	position: relative;
 	background: var(--body-bg);
 
-	// &.overflow{
-	// 	overflow: hidden;
-	// }
+	&.overflow{
+		overflow: hidden;
+	}
 
-	// &.modal-visible{
-	// 	overflow: hidden;
-	// 	height: 100vh;
-	// }
+	&.modal-visible{
+		overflow: hidden;
+		height: 100vh;
+	}
 
 	img{
 		max-width: unset;
 	}
+}
+
+::selection{
+	background: var(--primary);
 }
 
 ul, ol{

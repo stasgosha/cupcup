@@ -1,29 +1,45 @@
-// TODO: ↓↓↓ remove this script ↓↓↓
-// Current menu item highlithing
-$(function () {
-	var location = window.location.href;
-	var cur_url = location.split('/').pop();
-
-	$('.top-nav li, .mobile-top-nav li, .footer-nav li').each(function () {
-		var link = $(this).find('a').attr('href');
-
-		// console.log(link);
-
-		if (cur_url == '') {
-			cur_url = 'index.html';
-		}
-
-		if (cur_url == link)
-		{
-			$(this).addClass('current-menu-item');
-			$(this).parents('li').addClass('current-menu-parent');
-		}
-	});
-});
-
-
 document.addEventListener('DOMContentLoaded', function(){
 	const isMobile = $(window).width() < 992;
+
+	// Page Nav Highlighting
+	if ($('.top-nav').length > 0) {
+		// Cache selectors
+		let topMenu = $('.top-nav ul');
+
+		let lastId,
+			topMenuHeight = 0,
+			// All list items
+			menuItems = topMenu.find("a"),
+			// Anchors corresponding to menu items
+			scrollItems = menuItems.map(function() {
+				var item = $($(this).attr("href"));
+				if (item.length) {
+					return item;
+				}
+			});
+
+		// Bind to scroll
+		$(window).scroll(function() {
+			let fromTop = $(this).scrollTop() + $(window).height() * 0.5;
+
+			let cur = scrollItems.map(function() {
+				if ($(this).offset().top < fromTop){
+					// if ($(this).offset().top + $(this).outerHeight() > $(window).scrollTop() + $(window).height()) {
+						return this;
+					// }
+				}
+			});
+
+			cur = cur[cur.length - 1];
+			let id = cur && cur.length ? cur[0].id : "";
+
+			if (lastId !== id) {
+				lastId = id;
+				menuItems.removeClass("active");
+				menuItems.filter("[href='#" + id + "']").addClass("active");
+			}
+		});
+	}
 
 	// Accordions
 	// const toggleAccordion = (el) => {
@@ -117,9 +133,11 @@ document.addEventListener('DOMContentLoaded', function(){
 		infinite: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
-		arrows: true,
-		dots: true,
-		...arrowsButtonsSmall
+		arrows: false,
+		dots: false,
+		...arrowsButtons,
+		autoplay: true,
+		autoplaySpeed: 2000
 	});
 
 	// Scroll to anchor
@@ -169,33 +187,33 @@ document.addEventListener('DOMContentLoaded', function(){
 	setTimeout(stickyHeader, 100);
 
 	// Modals
-	// $('.modal').css('display','block');
+	$('.modal').css('display','block');
 
-	// $('.modal-dialog').click(e => e.stopPropagation());
-	// $('.modal').click(function(e){
-	// 	hideModal( $(this) );
-	// 	$('.video-modal .modal-video').html('<div id="modal-video-iframe"></div>');
-	// });
+	$('.modal-dialog').click(e => e.stopPropagation());
+	$('.modal').click(function(e){
+		hideModal( $(this) );
+		$('.video-modal .modal-video').html('<div id="modal-video-iframe"></div>');
+	});
 
-	// $('.modal-close, .js-modal-close').click(function(e){
-	// 	e.preventDefault();
+	$('.modal-close, .js-modal-close').click(function(e){
+		e.preventDefault();
 
-	// 	hideModal( $(this).closest('.modal') );
-	// 	$('.video-modal .modal-video').html('<div id="modal-video-iframe"></div>');
-	// });
+		hideModal( $(this).closest('.modal') );
+		$('.video-modal .modal-video').html('<div id="modal-video-iframe"></div>');
+	});
 
-	// $('[data-modal]').click(function(e){
-	// 	e.preventDefault();
-	// 	e.stopPropagation();
+	$('[data-modal]').click(function(e){
+		e.preventDefault();
+		e.stopPropagation();
 
-	// 	hideModal('.modal');
+		hideModal('.modal');
 
-	// 	if ($(this).data('modal-tab') != undefined) {
-	// 		goToTab($(this).data('modal-tab'));
-	// 	}
+		if ($(this).data('modal-tab') != undefined) {
+			goToTab($(this).data('modal-tab'));
+		}
 
-	// 	showModal( $(this).data('modal') );
-	// });
+		showModal( $(this).data('modal') );
+	});
 
 	// $('[data-video-modal]').click(function(e) {
 	// 	e.preventDefault();
@@ -248,36 +266,36 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 
-// function getScrollWidth() {
-// 	// create element with scroll
-// 	let div = document.createElement('div');
+function getScrollWidth() {
+	// create element with scroll
+	let div = document.createElement('div');
 
-// 	div.style.overflowY = 'scroll';
-// 	div.style.width = '50px';
-// 	div.style.height = '50px';
+	div.style.overflowY = 'scroll';
+	div.style.width = '50px';
+	div.style.height = '50px';
 
-// 	document.body.append(div);
-// 	let scrollWidth = div.offsetWidth - div.clientWidth;
+	document.body.append(div);
+	let scrollWidth = div.offsetWidth - div.clientWidth;
 
-// 	div.remove();
+	div.remove();
 
-// 	return scrollWidth;
-// }
+	return scrollWidth;
+}
 
-// let bodyScrolled = 0;
+let bodyScrolled = 0;
 
-// function showModal(modal) {
-// 	$(modal).addClass('visible');
-// 	bodyScrolled = $(window).scrollTop();
-// 	$('body, .header').addClass('modal-visible')
-// 		.scrollTop(bodyScrolled)
-// 		.css('padding-right', getScrollWidth());
-// }
+function showModal(modal) {
+	$(modal).addClass('visible');
+	bodyScrolled = $(window).scrollTop();
+	$('body, .header').addClass('modal-visible')
+		.scrollTop(bodyScrolled)
+		.css('padding-right', getScrollWidth());
+}
 
-// function hideModal(modal) {
-// 	$(modal).removeClass('visible');
-// 	bodyScrolled = $(window).scrollTop();
-// 	$('body, .header').removeClass('modal-visible')
-// 		.scrollTop(bodyScrolled)
-// 		.css('padding-right', 0);
-// }
+function hideModal(modal) {
+	$(modal).removeClass('visible');
+	bodyScrolled = $(window).scrollTop();
+	$('body, .header').removeClass('modal-visible')
+		.scrollTop(bodyScrolled)
+		.css('padding-right', 0);
+}

@@ -1,3 +1,154 @@
 .header{
-	
+	padding: 20px 0;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+	background: #fff;
+	transition: padding-top var(--t), padding-bottom var(--t), box-shadow var(--t);
+
+	.header-inner{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: calc(100% + 15px * 2);
+		margin-left: -15px;
+		margin-right: -15px;
+		
+		.header-block{
+			padding: 0 15px;
+
+			&.with-language-select{
+				display: flex;
+				align-items: center;
+
+				.language-select-block{
+					margin-left: 50px;
+				}
+			}
+		}
+	}
+
+	&.sticky{
+		padding: 10px 0;
+		box-shadow: 0 1px 0 var(--light);
+	}
+}
+
+.logo-block{
+	display: flex;
+
+	img{
+		height: 50px;
+		width: auto;
+		display: block;
+	}
+
+	&:hover,
+	&:focus{
+		transform: rotate(-3deg);
+	}
+}
+
+.top-nav{
+	> ul{
+		display: flex;
+		@include button-text;
+
+		li{
+			a{
+				display: block;
+				color: inherit;
+				padding: 10px;
+
+				&:hover,
+				&:focus,
+				&.active{
+					color: var(--primary);
+				}
+			}
+		}
+	}
+}
+
+.language-select-block{
+	position: relative;
+
+	.block-opener{
+		@include button-text;
+		display: flex;
+		align-items: center;
+
+		.btn-text{
+			display: block;
+			line-height: 24px;
+		}
+
+		.btn-icon{
+			width: 24px;
+			height: 24px;
+			display: block;
+			fill: currentcolor;
+			transition: transform var(--t);
+		}
+	}
+
+	.block-hidden-content{
+		display: grid;
+		grid-gap: 8px;
+		padding: 16px 20px;
+		background: #fff;
+		box-shadow: 0px 4px 50px #E7E7E7;
+		border-radius: 10px;
+
+		@include button-text;
+
+		position: absolute;
+		left: 50%;
+		top: calc(100% + 8px);
+		transform: translate(-50%, 30px);
+		transition: all var(--t);
+
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+
+		&:before{
+			content: '';
+			display: block;
+			width: 100%;
+			height: 8px;
+			position: absolute;
+			left: 0;
+			bottom: 100%;
+		}
+
+		a{
+			color: inherit;
+
+			&:hover,
+			&:focus{
+				color: var(--primary);
+			}
+		}
+	}
+
+	&:hover,
+	&:focus-within{
+		.block-opener{
+			color: var(--primary);
+
+			.btn-icon{
+				transform: rotate(-180deg);
+			}
+		}
+
+		.block-hidden-content{
+			transform: translate(-50%, 0);
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+	}
 }

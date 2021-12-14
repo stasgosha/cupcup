@@ -1,0 +1,30 @@
+.app-buttons-block{
+	display: flex;
+
+	.app-btn{
+		&:not(:last-child){
+			margin-right: 10px;
+		}
+	}
+}
+
+.app-btn{
+	display: block;
+
+	img{
+		height: 50px;
+		width: auto;
+		display: block;
+	}
+
+	&.small{
+		img{
+			height: 38px;
+		}
+	}
+
+	&:hover,
+	&:focus{
+		transform: rotate(-3deg);
+	}
+}

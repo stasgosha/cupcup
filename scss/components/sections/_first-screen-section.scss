@@ -1,3 +1,42 @@
 .first-screen-section{
-	
+	padding: 60px 0 164px;
+
+	.section-inner{
+		display: grid;
+		align-items: center;
+		grid-template-columns: 1fr 585px;
+		grid-gap: 30px;
+	}
+
+	.section-text{
+		@include p-small;
+		margin-bottom: 30px;
+	}
+}
+
+.page-caption{
+	@include h1;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+
+	.with-animated-line{
+		position: relative;
+		display: block;
+
+		svg{
+			position: absolute;
+			left: -34px;
+			top: -1px;
+			display: block;
+			height: 90px;
+			width: 566px;
+			pointer-events: none;
+		}
+	}
+}
+
+.first-screen-slider{
+	border-radius: 20px;
+	background: var(--light);
+	overflow: hidden;
 }

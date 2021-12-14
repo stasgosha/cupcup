@@ -1,0 +1,80 @@
+.stripes-section{
+	pointer-events: none;
+
+	.stripe{
+		&.theme-1{
+			transform: rotate(-2deg);
+		}
+
+		&.theme-2{
+			transform: rotate(2deg);
+			margin-top: -68px;
+		}
+	}
+}
+
+.stripe{
+	position: relative;
+	color: #fff;
+	background: var(--accent);
+	white-space: nowrap;
+	width: calc(100vw + 20px);
+	margin-left: -10px;
+	margin-right: -10px;
+	pointer-events: none;
+
+	@keyframes stripeMove{
+		0%{
+			transform: translateX(0);
+		}
+
+		100%{
+			transform: translateX(-100%);
+		}
+	}
+
+	.stripe-content{
+		display: inline-flex;
+		align-items: center;
+		white-space: nowrap;
+		padding: 27px 0 24px;
+		font-size: 0;
+
+		animation: stripeMove 20s infinite linear;
+	}
+
+	.stripe-item{
+		margin: 0 20px;
+		display: flex;
+		align-items: center;
+		@include h5;
+
+		&:after{
+			content: '';
+			display: block;
+			width: 24px;
+			height: 29px;
+			background: url(../img/logo-symbol.svg) no-repeat center center / contain;
+			margin-left: 40px;
+		}
+	}
+
+	&.theme-2{
+		background: var(--primary);
+	}
+
+	&.theme-3{
+		background: var(--light);
+		color: var(--text-dark);
+
+		.stripe-item{
+			background-image: url(../img/logo-symbol-dark.svg);
+		}
+	}
+
+	&.reverse{
+		.stripe-content{
+			animation-direction: reverse;
+		}
+	}
+}
