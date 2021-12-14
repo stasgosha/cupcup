@@ -1,0 +1,59 @@
+.btn{
+	--btn-bg: var(--primary);
+	--btn-hover-bg: transparent;
+	--btn-color: #fff;
+
+	text-align: center;
+	padding: 10px 44px;
+	min-height: 49px;
+
+	border: 1px solid var(--btn-bg);
+	border-radius: 0;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	transition: all var(--t);
+	cursor: pointer;
+	appearance: none;
+	white-space: nowrap;
+
+	background: var(--btn-bg);
+	color: var(--btn-color);
+
+	position: relative;
+
+	font-family: var(--main-font);
+	font-size: 16px;
+	line-height: 1.1;
+	font-weight: 700;
+
+	&:hover,
+	&:focus{
+		outline: none;
+		background: var(--btn-hover-bg);
+		border: 1px solid #fff;
+	}
+
+	&.btn-stroke{
+		background: transparent;
+		color: var(--btn-bg);
+
+		&:hover,
+		&:focus{
+			color: #fff;
+		}
+
+		&.btn-white{
+			border-color: #fff;
+			color: #fff;
+
+			&:hover,
+			&:focus{
+				background: #fff;
+				color: var(--text-color);
+			}
+		}
+	}
+}

@@ -1,0 +1,48 @@
+.accordion{
+	.ac-header{
+		padding-bottom: 16px;
+		border-bottom: 1px solid var(--border-color-rgb);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+	}
+
+	.ac-caption{
+		font-size: 16px;
+		line-height: 1.6;
+		color: var(--text-dark);
+		cursor: pointer;
+		font-family: var(--second-font);
+
+		.theme-2 &{
+			font-weight: 400;
+		}
+
+		.theme-2 &{
+			font-weight: 500;
+		}
+	}
+
+	.ac-opener{
+		display: block;
+		flex: none;
+		width: 14px;
+		height: 8px;
+		background: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M13 1 7 7 1 1' stroke='%231F1D2B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center center / contain;
+		cursor: pointer;
+		transition: all var(--t);
+	}
+
+	&.opened{
+		.ac-opener{
+			transform: rotate(-180deg);
+		}
+	}
+
+	.ac-content{
+		display: none;
+		padding: 16px 0;
+		border-bottom: 1px solid var(--border-color-rgb);
+	}
+}

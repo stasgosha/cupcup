@@ -1,0 +1,103 @@
+*,
+*:before,
+*:after{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	position: relative;
+	background: var(--body-bg);
+
+	// &.overflow{
+	// 	overflow: hidden;
+	// }
+
+	// &.modal-visible{
+	// 	overflow: hidden;
+	// 	height: 100vh;
+	// }
+
+	img{
+		max-width: unset;
+	}
+}
+
+ul, ol{
+	list-style: none;
+}
+
+button{
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	appearance: none;
+	font-family: inherit;
+	box-shadow: none;
+	border-radius: 0;
+	// outline: none !important;
+}
+
+a, button{
+	text-decoration: none;
+	transition: all var(--t);
+	// outline: none !important;
+	border: none;
+}
+
+picture, iframe, figure{
+	display: block;
+}
+
+.wrapper{
+	min-height: 100vh;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.page-content{
+		padding-top: 90px;
+	}
+
+	.footer{
+		margin-top: auto;
+	}
+}
+
+.container{
+	width: 100%;
+	padding: 0 20px;
+	margin: 0 auto;
+
+	@media screen and (min-width: 576px){
+		max-width: 536px;
+	}
+
+	@media screen and (min-width: 768px){
+		padding: 0 10px;
+		max-width: 708px;
+	}
+
+	@media screen and (min-width: 992px){
+		max-width: 960px;
+	}
+
+	@media screen and (min-width: 1230px){
+		max-width: 1230px;
+		padding: 0 15px;
+	}
+}
+
+.visually-hidden{
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}

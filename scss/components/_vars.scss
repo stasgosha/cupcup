@@ -1,0 +1,24 @@
+:root{
+	// Fonts
+	--main-font:  'Rubik', Arial, sans-serif;
+	--second-font: 'Rubik', Arial, sans-serif;
+
+	// Colors
+	--azure: #00DBD1;
+	--darkblue: #003B63;
+
+	--dark: #282828;
+	--light: #F8F8F8;
+
+	// Params
+	--body-bg: #fff; // site background
+	--t: .3s; // animation duration
+	--r: 0; // default border radius
+
+	--text-color: var(--dark);
+	--text-light: var(--dark);
+	--text-dark: var(--dark);
+
+	--primary: var(--azure);
+	--accent: var(--darkblue);
+}

@@ -1,0 +1,61 @@
+.form{
+	.input-field,
+	textarea{
+		border: 1px solid #c8c8c8;
+		appearance: none;
+		background: transparent;
+		border-radius: 0;
+		flex: auto;
+		height: 50px;
+		font-size: 16px;
+		font-weight: 400;
+		color: var(--primary);
+		font-family: inherit;
+		padding: 0 10px;
+		outline: none !important;
+		transition: all var(--t);
+		width: 100%;
+		box-shadow: none;
+
+		&::placeholder{
+			opacity: 1;
+			color: var(--primary);
+		}
+
+		&:focus{
+			border-color: var(--primary);
+		}
+
+		&.error{
+			border-color: #DB5366;
+		}
+	}
+
+	textarea{
+		resize: none;
+		padding: 15px 10px;
+		height: 174px;
+		display: block;
+	}
+
+	.form-note{
+		font-size: 16px;
+		line-height: 1.2;
+		font-weight: 400;
+	}
+
+	.wpcf7-list-item{
+		margin: 0;
+	}
+
+	p{
+		margin-bottom: 0;
+	}
+
+	@media screen and (max-width: 575px){
+		.form-note{
+			text-align: center;
+			font-size: 14px;
+		}
+	}
+}

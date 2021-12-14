@@ -1,0 +1,100 @@
+@mixin p{
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+@mixin p-small{
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+@mixin button-text{
+	font-size: 14px;
+	line-height: 1.4;
+	font-weight: bold;
+
+	@media screen and (max-width: 1229px){
+		font-size: 12px;
+	}
+}
+
+@mixin h1{
+	font-size: 80px;
+	line-height: 1.1;
+
+	@media screen and (max-width: 1229px){
+		font-size: 60px;
+	}
+
+	@media screen and (max-width: 991px){
+		font-size: 45px;
+	}
+}
+
+@mixin h2{
+	font-size: 50px;
+	line-height: 1.4;
+
+	@media screen and (max-width: 1229px){
+		font-size: 36px;
+	}
+
+	@media screen and (max-width: 991px){
+		font-size: 30px;
+	}
+}
+
+@mixin h3{
+	font-size: 38px;
+	line-height: 1.3;
+
+	@media screen and (max-width: 1229px){
+		font-size: 28px;
+	}
+
+	@media screen and (max-width: 991px){
+		font-size: 24px;
+	}
+}
+
+@mixin h4{
+	font-size: 30px;
+	line-height: 1.4;
+
+	@media screen and (max-width: 1229px){
+		font-size: 24px;
+	}
+
+	@media screen and (max-width: 991px){
+		font-size: 20px;
+	}
+}
+
+@mixin h5{
+	font-size: 20px;
+	line-height: 1.4;
+}
+
+body{
+	font-family: var(--main-font);
+	color: var(--text-color);
+
+	@include p;
+}
+
+.section-caption{
+	margin-bottom: 40px;
+
+	&:last-child{
+		margin-bottom: 0;
+	}
+
+	.sc-title{
+		@include h3;
+	}
+
+	.sc-subtitle{
+		@include p-small;
+		margin-top: 20px;
+	}
+}
