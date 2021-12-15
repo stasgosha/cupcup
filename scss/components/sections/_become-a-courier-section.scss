@@ -1,0 +1,307 @@
+.become-a-courier-section{
+	padding: 130px 0;
+
+	.section-grid{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 100px 30px;
+	}
+
+	.about-delivery-component{
+		grid-column: 1 / -1;
+	}
+
+	.circle-image{
+		position: relative;
+		
+		&:before{
+			content: '';
+			display: block;
+			padding-top: 100%;
+		}
+		
+		img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			object-fit: cover;
+			object-position: center center;
+			border-radius: 50%;
+			transition: all var(--t);
+		}
+
+		&:hover,
+		&:focus{
+			img{
+				border-radius: var(--r);
+			}
+		}
+	}
+}
+
+.looking-for-a-job-card{
+	padding: 50px;
+	position: relative;
+
+	.card-inner{
+		background: var(--primary);
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		color: #fff;
+		border-radius: var(--r);
+
+		::selection{
+			background: var(--accent);
+		}
+	}
+
+	.card-content{
+		display: flex;
+		flex-direction: column;
+
+		p{
+			max-width: 220px;
+			@include p-small;
+			margin-bottom: 20px;
+		}
+	}
+
+	.card-caption{
+		@include h4;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+
+		img{
+			width: 30px;
+			height: 30px;
+		}
+	}
+
+	.card-lines{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		pointer-events: none;
+
+		.line{
+			position: absolute;
+			white-space: nowrap;
+			overflow: hidden;
+
+			@keyframes stripeMove{
+				0%{
+					transform: translateX(0);
+				}
+
+				100%{
+					transform: translateX(-100%);
+				}
+			}
+
+			.line-content{
+				display: inline-flex;
+				align-items: center;
+				white-space: nowrap;
+				padding: 10px 0;
+				font-size: 0;
+
+				animation: stripeMove 10s infinite linear;
+			}
+
+			.line-item{
+				margin: 0 15px;
+				display: flex;
+				align-items: center;
+				@include h5;
+
+				&:after{
+					content: '';
+					display: block;
+					width: 30px;
+					height: 30px;
+					background: url(../img/icons/kick-scooter@2x.png) no-repeat center center / contain;
+					margin-left: 30px;
+				}
+			}
+
+			&.top{
+				top: 0;
+				left: 50px;
+				right: 50px;
+			}
+
+			&.bottom{
+				bottom: 0;
+				left: 50px;
+				right: 50px;
+
+				.line-content{
+					animation-direction: reverse;
+				}
+			}
+
+			&.left{
+				left: 50px;
+				bottom: 50px;
+				right: 50px;
+				transform-origin: left bottom;
+				transform: rotate(-90deg);
+			}
+
+			&.right{
+				top: calc(100% - 50px);
+				left: calc(100% - 50px);
+				width: calc(100% - 50px * 2);
+				transform-origin: left top;
+				transform: rotate(-90deg);
+
+				.line-content{
+					animation-direction: reverse;
+				}
+			}
+		}
+	}
+}
+
+.about-delivery-component{
+	display: grid;
+	grid-template-columns: calc(50% - 15px) calc(50% - 15px);
+	grid-gap: 30px;
+	align-items: center;
+
+	.cmp-content{
+		padding-left: 50px;
+	}
+
+	.cmp-slider{
+		margin: -50px 0;
+
+		.slide{
+			padding: 50px 0;
+		}
+	}
+
+	.section-caption{
+		margin-bottom: 30px;
+	}
+
+	.cmp-nav{
+		display: grid;
+		grid-gap: 20px;
+		margin-bottom: 30px;
+		counter-reset: li;
+
+		li{
+			counter-increment: li;
+
+			.nav-btn{
+				@include h4;
+				text-transform: uppercase;
+				display: flex;
+				align-items: baseline;
+				color: inherit;
+
+				&:before{
+					content: '0'counter(li);
+					display: block;
+					flex: none;
+					width: 33px;
+					margin-right: 10px;
+					@include h5;
+					color: #D7D7D7;
+					transition: all var(--t);
+				}
+
+				&.active{
+					color: var(--primary);
+
+					&:before{
+						color: var(--primary);
+					}
+				}
+
+				&:hover,
+				&:focus{
+					color: var(--primary);
+				}
+			}
+		}
+	}
+}
+
+.about-card{
+	position: relative;
+	transition: all var(--t);
+	transform: translateY(50px);
+
+	.slick-current &{
+		transform: translateY(0);
+	}
+
+	&:before{
+		content: '';
+		display: block;
+		padding-top: 100%;
+	}
+	
+	.card-bg{
+		pointer-events: none;
+
+		img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			object-fit: cover;
+			object-position: center center;
+			border-radius: var(--r);
+		}
+	}
+
+	.card-message{
+		position: absolute;
+		z-index: 2;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 50px;
+		width: 100%;
+		max-width: 400px;
+		padding: 30px;
+		border-radius: var(--r);
+		background: var(--light);
+		display: flex;
+		align-items: flex-start;
+		@include p-small;
+
+		.message-icon{
+			width: 30px;
+			height: 30px;
+			margin-right: 10px;
+			flex: none;
+			display: block;
+			object-fit: contain;
+			object-position: center center;
+			transform: translateY(-15%);
+		}
+
+		&.wide{
+			max-width: calc(100% - 40px * 2);
+		}
+
+		&.bottom{
+			top: auto;
+			bottom: 50px;
+		}
+	}
+}

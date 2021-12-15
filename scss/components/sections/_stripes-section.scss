@@ -68,7 +68,9 @@
 		color: var(--text-dark);
 
 		.stripe-item{
-			background-image: url(../img/logo-symbol-dark.svg);
+			&:after{
+				background-image: url(../img/logo-symbol-dark.svg);
+			}
 		}
 	}
 

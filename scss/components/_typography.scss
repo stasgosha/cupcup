@@ -61,6 +61,7 @@
 @mixin h4{
 	font-size: 30px;
 	line-height: 1.4;
+	font-weight: bold;
 
 	@media screen and (max-width: 1229px){
 		font-size: 24px;
@@ -74,6 +75,7 @@
 @mixin h5{
 	font-size: 20px;
 	line-height: 1.4;
+	font-weight: bold;
 }
 
 body{
@@ -92,6 +94,15 @@ body{
 
 	.sc-title{
 		@include h3;
+
+		&.big{
+			@include h2;
+			text-transform: uppercase;
+		}
+
+		img{
+			transform: translateY(15%);
+		}
 	}
 
 	.sc-subtitle{

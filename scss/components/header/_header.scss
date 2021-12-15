@@ -63,7 +63,7 @@
 				padding: 10px;
 
 				&:hover,
-				&:focus,
+				&:focus-visible,
 				&.active{
 					color: var(--primary);
 				}

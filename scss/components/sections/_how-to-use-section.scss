@@ -25,7 +25,7 @@
 		top: 0;
 		padding: 50px;
 		background: var(--light);
-		border-radius: 20px;
+		border-radius: var(--r);
 		display: flex;
 		flex-direction: column;
 	}
@@ -95,7 +95,7 @@
 	&:focus,
 	&.opened{
 		img{
-			border-radius: 20px;
+			border-radius: var(--r);
 		}
 	}
 }

@@ -1,3 +1,180 @@
 .footer{
-	
+	background: var(--dark);
+	color: #fff;
+
+	.footer-inner{
+		display: flex;
+		justify-content: space-between;
+		width: calc(100% + 15px * 2);
+		margin-left: -15px;
+		margin-right: -15px;
+		
+		.footer-block{
+			padding: 0 15px;
+		}
+	}
+
+	.footer-row{
+		&.first{
+			padding: 80px 0;
+			border-bottom: 1px solid rgba(#fff, .1);
+
+			.footer-inner{
+				align-items: flex-start;
+			}
+		}
+
+		&.second{
+			padding: 40px 0;
+			border-bottom: 1px solid rgba(#fff, .1);
+		}
+
+		&.third{
+			padding: 40px 0 67px;
+
+			.footer-inner{
+				align-items: center;
+			}
+		}
+	}
+
+	.note{
+		font-size: 14px;
+		line-height: 1.5;
+		color: rgba(#fff, .5);
+	}
+}
+
+.contacts-list{
+	display: grid;
+	grid-gap: 50px;
+
+	.item{
+		display: grid;
+		grid-template-columns: 60px 1fr;
+		grid-gap: 18px;
+		align-items: start;
+
+		.item-icon{
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: rgba(#fff, .1);
+
+			img{
+				width: 30px;
+				height: 30px;
+				display: block;
+				object-fit: contain;
+				object-position: center center;
+			}
+		}
+
+		.item-caption{
+			@include h5;
+			text-transform: uppercase;
+			min-height: 60px;
+			display: flex;
+			align-items: center;
+		}
+
+		.item-inner{
+			padding-top: 4px;
+
+			p{
+				margin-bottom: 7px;
+
+				&:last-child{
+					margin-bottom: 0;
+				}
+			}
+
+			a{
+				color: var(--primary);
+
+				&:hover,
+				&:focus{
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.item-subcategory{
+			margin-bottom: 30px;
+
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+
+		.item-subcaption{
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.links-list{
+	display: flex;
+	align-items: center;
+
+	li{
+		&:not(:last-child){
+			margin-right: 20px;
+		}
+
+		a{
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			color: var(--primary);
+
+			.link-icon{
+				width: 24px;
+				height: 24px;
+				flex: none;
+				margin-right: 10px;
+				fill: currentcolor;
+
+				&:is(img){
+					width: 40px;
+					height: 40px;
+				}
+			}
+
+			&:hover,
+			&:focus{
+				text-decoration: none;
+
+				.link-text{
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+.designed-by-block{
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	line-height: 1.5;
+	color: rgba(#fff, .5);
+	text-transform: uppercase;
+
+	p{
+		margin-right: 10px;
+	}
+
+	a{
+		display: block;
+
+		&:hover,
+		&:focus{
+			transform: rotate(-3deg);
+		}
+	}
 }

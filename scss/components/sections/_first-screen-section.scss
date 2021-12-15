@@ -36,7 +36,28 @@
 }
 
 .first-screen-slider{
-	border-radius: 20px;
+	border-radius: var(--r);
 	background: var(--light);
 	overflow: hidden;
+
+	.slide-image{
+		position: relative;
+		
+		&:before{
+			content: '';
+			display: block;
+			padding-top: 100%;
+		}
+		
+		img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			object-fit: cover;
+			object-position: center center;
+		}
+	}
 }

@@ -1,0 +1,27 @@
+.payment-security-section{
+	padding: 100px 0;
+	background: var(--light);
+}
+
+.payment-security-block{
+	max-width: 685px;
+
+	.block-caption{
+		@include h5;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+	}
+
+	.block-text{
+		@include p-small;
+		margin-bottom: 20px;
+	}
+
+	.block-image{
+		img{
+			height: 44px;
+			width: auto;
+			display: block;
+		}
+	}
+}
