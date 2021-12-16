@@ -109,4 +109,8 @@ body{
 		@include p-small;
 		margin-top: 20px;
 	}
+
+	@media screen and (max-width: 1229px){
+		margin-bottom: 30px;
+	}
 }

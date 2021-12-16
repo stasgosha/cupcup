@@ -24,7 +24,7 @@
 				align-items: center;
 
 				.language-select-block{
-					margin-left: 50px;
+					margin-left: 40px;
 				}
 			}
 		}
@@ -33,6 +33,24 @@
 	&.sticky{
 		padding: 10px 0;
 		box-shadow: 0 1px 0 var(--light);
+	}
+
+	@media screen and (max-width: 1229px){
+		.header-inner{
+			width: calc(100% + 10px * 2);
+			margin-left: -10px;
+			margin-right: -10px;
+			
+			.header-block{
+				padding: 0 10px;
+
+				&.with-language-select{
+					.language-select-block{
+						margin-left: 5px;
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -48,6 +66,12 @@
 	&:hover,
 	&:focus{
 		transform: rotate(-3deg);
+	}
+
+	@media screen and (max-width: 1229px){
+		img{
+			height: 34px;
+		}
 	}
 }
 
@@ -66,6 +90,10 @@
 				&:focus-visible,
 				&.active{
 					color: var(--primary);
+				}
+
+				@media screen and (max-width: 1229px){
+					padding: 5px;
 				}
 			}
 		}

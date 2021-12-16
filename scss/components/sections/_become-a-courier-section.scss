@@ -40,11 +40,22 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 1229px){
+		padding: 110px 0;
+
+		.section-grid{
+			grid-gap: 85px 20px;
+			align-items: center;
+		}
+	}
 }
 
 .looking-for-a-job-card{
-	padding: 50px;
+	padding: var(--card-outer-padding);
 	position: relative;
+
+	--card-outer-padding: 50px;
 
 	.card-inner{
 		background: var(--primary);
@@ -134,14 +145,14 @@
 
 			&.top{
 				top: 0;
-				left: 50px;
-				right: 50px;
+				left: var(--card-outer-padding);
+				right: var(--card-outer-padding);
 			}
 
 			&.bottom{
 				bottom: 0;
-				left: 50px;
-				right: 50px;
+				left: var(--card-outer-padding);
+				right: var(--card-outer-padding);
 
 				.line-content{
 					animation-direction: reverse;
@@ -149,17 +160,17 @@
 			}
 
 			&.left{
-				left: 50px;
-				bottom: 50px;
-				right: 50px;
+				left: var(--card-outer-padding);
+				bottom: var(--card-outer-padding);
+				right: var(--card-outer-padding);
 				transform-origin: left bottom;
 				transform: rotate(-90deg);
 			}
 
 			&.right{
-				top: calc(100% - 50px);
-				left: calc(100% - 50px);
-				width: calc(100% - 50px * 2);
+				top: calc(100% - var(--card-outer-padding));
+				left: calc(100% - var(--card-outer-padding));
+				width: calc(100% - var(--card-outer-padding) * 2);
 				transform-origin: left top;
 				transform: rotate(-90deg);
 
@@ -169,13 +180,37 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 1229px){
+		--card-outer-padding: 40px;
+
+		.card-inner{
+			min-height: 380px;
+		}
+
+		.card-content{
+			p{
+				max-width: 290px;
+			}
+		}
+
+		.card-lines{
+			.line{
+				.line-content{
+					padding: 5px 0;
+				}
+			}
+		}
+	}
 }
 
 .about-delivery-component{
 	display: grid;
-	grid-template-columns: calc(50% - 15px) calc(50% - 15px);
-	grid-gap: 30px;
+	grid-template-columns: calc(50% - var(--gap) / 2) calc(50% - var(--gap) / 2);
+	grid-gap: var(--gap);
 	align-items: center;
+
+	--gap: 30px;
 
 	.cmp-content{
 		padding-left: 50px;
@@ -235,12 +270,25 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 1229px){
+		.cmp-content{
+			padding-left: 40px;
+		}
+
+		.cmp-nav{
+			grid-gap: 15px;
+		}
+	}
 }
 
 .about-card{
 	position: relative;
 	transition: all var(--t);
 	transform: translateY(50px);
+
+	--message-position: 50px;
+	--card-paddings: 40px;
 
 	.slick-current &{
 		transform: translateY(0);
@@ -274,7 +322,7 @@
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
-		top: 50px;
+		top: var(--message-position);
 		width: 100%;
 		max-width: 400px;
 		padding: 30px;
@@ -296,12 +344,31 @@
 		}
 
 		&.wide{
-			max-width: calc(100% - 40px * 2);
+			max-width: calc(100% - var(--card-paddings) * 2);
 		}
 
 		&.bottom{
 			top: auto;
-			bottom: 50px;
+			bottom: var(--message-position);
+		}
+	}
+
+	@media screen and (max-width: 1229px){
+		--message-position: 40px;
+		--card-paddings: 30px;
+
+		.card-message{
+			max-width: 324px;
+			padding: 20px;
+
+			.message-icon{
+				width: 24px;
+				height: 24px;
+			}
+
+			&.lg-wide{
+				max-width: calc(100% - 25px * 2);
+			}
 		}
 	}
 }

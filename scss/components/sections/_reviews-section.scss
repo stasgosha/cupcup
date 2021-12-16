@@ -36,6 +36,24 @@
 		margin-left: 13px;
 		margin-right: 13px;
 	}
+
+	@media screen and (max-width: 1229px){
+		padding: 110px 0;
+
+		.section-header{
+			margin-bottom: 30px;
+		}
+
+		.slider-nav{
+			padding-bottom: 7px;
+			padding-right: 15px;
+		}
+
+		.section-inner{
+			grid-template-columns: calc(33.333% - 10px) calc(66.667% - 10px);
+			grid-gap: 20px;
+		}
+	}
 }
 
 .products-slider-wrapper{
@@ -53,6 +71,14 @@
 		border-radius: var(--r);
 		transform: rotate(-6.82deg);
 	}
+
+	@media screen and (max-width: 1229px){
+		&:before{
+			max-height: 418px;
+			top: 5px;
+			left: -5px;
+		}
+	}
 }
 
 .products-slider{
@@ -64,20 +90,36 @@
 
 	img{
 		width: 100%;
-		height: auto;
+		height: 100%;
 		object-fit: cover;
 		object-position: center center;
 		display: block;
 	}
+
+	@media screen and (max-width: 1229px){
+		img{
+			min-height: 432px;
+		}
+	}
 }
 
 .reviews-slider{
-	width: calc(100% + 50% + 15px * 2);
+	width: calc(100% + 50% + 15px * 2 + 15px);
 	margin-left: -15px;
 	margin-right: calc(-50% - 15px);
 
 	.slide{
 		padding: 0 15px;
+	}
+
+	@media screen and (max-width: 1229px){
+		width: calc(100% + 50% + 10px * 2 + 10px);
+		margin-left: -10px;
+		margin-right: -10px;
+		
+		.slide{
+			padding: 0 10px;
+		}
 	}
 }
 
@@ -122,5 +164,10 @@
 	.card-author{
 		margin-top: auto;
 		@include p-small;
+	}
+
+	@media screen and (max-width: 1229px){
+		padding: 40px;
+		min-height: 432px;
 	}
 }

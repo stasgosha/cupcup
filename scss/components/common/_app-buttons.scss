@@ -1,7 +1,11 @@
 .app-buttons-block{
 	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -10px;
 
 	.app-btn{
+		margin-bottom: 10px;
+
 		&:not(:last-child){
 			margin-right: 10px;
 		}

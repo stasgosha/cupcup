@@ -12,6 +12,15 @@
 		@include p-small;
 		margin-bottom: 30px;
 	}
+
+	@media screen and (max-width: 1229px){
+		padding: 40px 0 144px;
+
+		.section-inner{
+			grid-template-columns: 1fr 460px;
+			grid-gap: 20px;
+		}
+	}
 }
 
 .page-caption{
@@ -31,6 +40,13 @@
 			height: 90px;
 			width: 566px;
 			pointer-events: none;
+
+			@media screen and (max-width: 1229px){
+				width: 439px;
+				height: 69px;
+				left: -22px;
+				top: -7px;
+			}
 		}
 	}
 }

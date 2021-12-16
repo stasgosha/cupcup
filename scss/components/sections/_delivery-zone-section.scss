@@ -69,4 +69,45 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 1229px){
+		padding-top: 118px;
+
+		.section-inner{
+			padding-bottom: 80px;
+		}
+
+		.section-map{
+			padding-top: 36px;
+			max-width: 460px;
+			padding-left: 30px;
+			padding: 30px;
+
+			.map-caption{
+				margin-bottom: 15px;
+			}
+		}
+
+		.section-content{
+			margin-left: 20px;
+			padding-left: 40px;
+
+			.section-caption{
+				&:first-child{
+					margin-bottom: 164px;
+				}
+			}
+		}
+
+		.section-caption{
+			.with-animated-line{
+				svg{
+					width: 160px;
+					height: 56px;
+					top: -9px;
+					left: -8px;
+				}
+			}
+		}
+	}
 }
