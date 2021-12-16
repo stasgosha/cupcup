@@ -41,6 +41,22 @@ document.addEventListener('DOMContentLoaded', function(){
 		});
 	}
 
+	// Info block
+	function setTooltipPosition(){
+		if ($(window).width() > 575) {
+			return false;
+		}
+
+		$('.info-tooltip').each(function(i, el){
+			const xPos = $(el).offset().left;
+
+			$(el).find('.block-hidden-content')[0].style.setProperty('--add-shift', `${ (xPos - 20) * -1 - $(el).width() / 2 }px`);
+		});
+	}
+
+	setTooltipPosition();
+	$(window).resize(setTooltipPosition);
+
 	// Sliders
 	function equalSlideHeight(slider){
 		$(slider).on('setPosition', function () {

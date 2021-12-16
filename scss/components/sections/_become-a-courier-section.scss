@@ -57,6 +57,15 @@
 			grid-gap: 60px 20px;
 		}
 	}
+
+	@media screen and (max-width: 767px){
+		padding: 100px 0;
+
+		.section-grid{
+			grid-template-columns: 100%;
+			grid-gap: 40px;
+		}
+	}
 }
 
 .looking-for-a-job-card{
@@ -109,6 +118,7 @@
 		left: 0;
 		top: 0;
 		pointer-events: none;
+		overflow: hidden;
 
 		.line{
 			position: absolute;
@@ -239,6 +249,38 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 767px){
+		--card-outer-padding: 26px;
+
+		.card-inner{
+			padding: 38px;
+		}
+
+		.card-caption{
+			@include h5;
+
+			img{
+				width: 20px;
+				height: 20px;
+			}
+		}
+
+		.card-lines{
+			.line{
+				.line-content{
+					padding: 2px 0;
+				}
+
+				.line-item{
+					&:after{
+						width: 20px;
+						height: 20px;
+					}
+				}
+			}
+		}
+	}
 }
 
 .about-delivery-component{
@@ -328,6 +370,22 @@
 		.section-caption,
 		.cmp-nav{
 			margin-bottom: 20px;
+		}
+	}
+
+	@media screen and (max-width: 767px){
+		display: flex;
+		flex-direction: column-reverse;
+		width: 100%;
+		grid-column: unset;
+
+		.cmp-content{
+			padding-left: 0;
+			margin-bottom: 40px;
+		}
+
+		.cmp-slider{
+			width: 100%;
 		}
 	}
 }

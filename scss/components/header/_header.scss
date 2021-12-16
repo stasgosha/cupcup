@@ -258,6 +258,10 @@
 				text-transform: uppercase;
 				color: inherit;
 				display: block;
+
+				@media screen and (max-width: 767px){
+					@include h4;
+				}
 			}
 		}
 	}

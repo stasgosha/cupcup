@@ -30,6 +30,8 @@
 			height: 44px;
 			width: auto;
 			display: block;
+			object-fit: contain;
+			object-position: left center;
 		}
 	}
 
@@ -39,6 +41,15 @@
 		.block-text{
 			br{
 				display: none;
+			}
+		}
+	}
+
+	@media screen and (max-width: 767px){
+		.block-image{
+			img{
+				height: 36px;
+				max-width: 100%;
 			}
 		}
 	}

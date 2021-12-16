@@ -23,6 +23,17 @@
 			grid-template-columns: 1fr 1fr;
 		}
 	}
+
+	@media screen and (max-width: 767px){
+		padding: 85px 0 100px;
+
+		.section-grid{
+			grid-template-columns: 1fr;
+			max-width: 375px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
 }
 
 .how-to-use-card{
@@ -107,6 +118,18 @@
 		}
 	}
 
+	@media screen and (max-width: 767px){
+		&:before{
+			padding-top: 100%;
+		}
+	}
+
+	@media screen and (max-width: 359px){
+		.card-inner{
+			padding: 30px;
+		}
+	}
+
 	&.highlighted{
 		.card-inner{
 			background: var(--primary);
@@ -158,9 +181,37 @@
 		font-size: inherit;
 		color: inherit;
 		font-weight: bold;
+		position: relative;
 
 		&:focus{
 			color: var(--primary);
+		}
+
+		&:after{
+			content: '';
+			display: block;
+			width: 15px;
+			height: 20px;
+			background: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 20'%3E%3Cpath d='M.43 9.18a1 1 0 0 0 0 1.64l12.24 8.49a1 1 0 0 0 1.57-.83V1.52A1 1 0 0 0 12.67.7L.43 9.18Z' fill='%23fff'/%3E%3C/svg%3E") no-repeat center center / contain;
+			position: absolute;
+			top: 50%;
+			transform: translate(30px, -50%);
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			left: calc(100% + 13px - 9px);
+			transition: all var(--t);
+			z-index: 25;
+
+			@media screen and (max-width: 767px){
+				width: 20px;
+				height: 15px;
+				background-image: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 15'%3E%3Cpath d='M9.18 13.81a1 1 0 0 0 1.64 0L19.3 1.57A1 1 0 0 0 18.48 0H1.52A1 1 0 0 0 .7 1.57L9.18 13.8Z' fill='%23fff'/%3E%3C/svg%3E");
+				left: 50%;
+				transform: translate(-50%, -30px);
+				top: auto;
+				bottom: calc(100% + 13px - 9px);
+			}
 		}
 	}
 
@@ -182,18 +233,6 @@
 		padding: 50px;
 		@include p-small;
 
-		&:before{
-			content: '';
-			display: block;
-			width: 15px;
-			height: 20px;
-			background: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 20'%3E%3Cpath d='M.43 9.18a1 1 0 0 0 0 1.64l12.24 8.49a1 1 0 0 0 1.57-.83V1.52A1 1 0 0 0 12.67.7L.43 9.18Z' fill='%23fff'/%3E%3C/svg%3E") no-repeat center center / contain;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			left: -9px;
-		}
-
 		&:after{
 			content: '';
 			display: block;
@@ -208,6 +247,19 @@
 			width: 350px;
 			padding: 40px 67px 40px 40px;
 		}
+
+		@media screen and (max-width: 767px){
+			width: 314px;
+			left: 50%;
+			transform: translate(-50%, -30px);
+			top: auto;
+			bottom: calc(100% + 13px);
+		}
+
+		@media screen and (max-width: 575px){
+			transform: translate(var(--add-shift, 0px), -30px);
+			max-width: calc(100vw - 20px * 2);
+		}
 	}
 
 	.block-caption{
@@ -218,11 +270,20 @@
 
 	&:hover,
 	&:focus-within{
+		.block-opener:after,
 		.block-hidden-content{
 			transform: translate(0, -50%);
 			opacity: 1;
 			visibility: visible;
 			pointer-events: auto;
+
+			@media screen and (max-width: 767px){
+				transform: translate(-50%, 0);
+			}
+
+			@media screen and (max-width: 575px){
+				transform: translate(var(--add-shift, 0px), 0);
+			}
 		}
 	}
 }

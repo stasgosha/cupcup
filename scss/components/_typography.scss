@@ -29,7 +29,7 @@
 	}
 
 	@media screen and (max-width: 991px){
-		font-size: 45px;
+		font-size: 46px;
 	}
 }
 
@@ -79,6 +79,10 @@
 	font-size: 20px;
 	line-height: 1.4;
 	font-weight: bold;
+
+	@media screen and (max-width: 767px){
+		font-size: 18px;
+	}
 }
 
 body{

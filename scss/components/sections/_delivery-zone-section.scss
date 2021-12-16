@@ -50,7 +50,10 @@
 		img{
 			width: 30px;
 			height: 30px;
-			transform: translateY(-10%);
+
+			@media screen and (min-width: 768px){
+				transform: translateY(-10%);
+			}
 		}
 
 		.with-animated-line{
@@ -139,6 +142,27 @@
 					margin-bottom: 142px;
 				}
 			}
+		}
+	}
+
+	@media screen and (max-width: 767px){
+		.section-inner{
+			grid-template-columns: 1fr;
+			grid-gap: 30px;
+			padding-bottom: 100px;
+		}
+
+		.section-caption{
+			margin-bottom: 0;
+		}
+
+		.section-content{
+			padding-left: 0;
+		}
+
+		.section-map{
+			padding-top: 0;
+			margin-bottom: 40px;
 		}
 	}
 }

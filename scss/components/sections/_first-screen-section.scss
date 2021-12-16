@@ -29,6 +29,19 @@
 			grid-template-columns: 1fr 334px;
 		}
 	}
+
+	@media screen and (max-width: 767px){
+		padding: 40px 0 85px;
+
+		.section-inner{
+			grid-template-columns: 100%;
+			grid-gap: 40px;
+		}
+
+		.section-text{
+			margin-bottom: 20px;
+		}
+	}
 }
 
 .page-caption{
@@ -89,6 +102,7 @@
 			display: block;
 			object-fit: cover;
 			object-position: center center;
+			border-radius: var(--r);
 		}
 	}
 }

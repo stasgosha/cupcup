@@ -42,6 +42,18 @@
 		opacity: 0;
 		visibility: hidden;
 	}
+
+	@media screen and (max-width: 767px){
+		width: 30px;
+		height: 30px;
+
+		.btn-outline{
+			width: 46px;
+			height: 30px;
+			left: -8px;
+			top: -1px;
+		}
+	}
 }
 
 .slick-dotted.slick-slider{
