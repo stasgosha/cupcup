@@ -21,6 +21,14 @@
 			grid-gap: 20px;
 		}
 	}
+
+	@media screen and (max-width: 991px){
+		padding: 20px 0 130px;
+
+		.section-inner{
+			grid-template-columns: 1fr 334px;
+		}
+	}
 }
 
 .page-caption{
@@ -46,6 +54,13 @@
 				height: 69px;
 				left: -22px;
 				top: -7px;
+			}
+
+			@media screen and (max-width: 991px){
+				width: 310px;
+				height: 60px;
+				left: -13px;
+				top: -8px;
 			}
 		}
 	}

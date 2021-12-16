@@ -6,7 +6,7 @@
 	width: 100%;
 	z-index: 100;
 	background: #fff;
-	transition: padding-top var(--t), padding-bottom var(--t), box-shadow var(--t);
+	transition: padding-top var(--t), padding-bottom var(--t), box-shadow var(--t), background var(--t);
 
 	.header-inner{
 		display: flex;
@@ -35,6 +35,11 @@
 		box-shadow: 0 1px 0 var(--light);
 	}
 
+	&.nav-opened{
+		background: transparent;
+		box-shadow: unset;
+	}
+
 	@media screen and (max-width: 1229px){
 		.header-inner{
 			width: calc(100% + 10px * 2);
@@ -56,11 +61,24 @@
 
 .logo-block{
 	display: flex;
+	position: relative;
 
 	img{
 		height: 50px;
 		width: auto;
 		display: block;
+		transition: all var(--t);
+	}
+
+	.white{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
 	}
 
 	&:hover,
@@ -68,9 +86,28 @@
 		transform: rotate(-3deg);
 	}
 
+	.nav-opened &{
+		img{
+			visibility: hidden;
+			opacity: 0;
+		}
+
+		.white{
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+	}
+
 	@media screen and (max-width: 1229px){
 		img{
 			height: 34px;
+		}
+	}
+
+	@media screen and (max-width: 991px){
+		img{
+			height: 38px;
 		}
 	}
 }
@@ -177,6 +214,79 @@
 			opacity: 1;
 			visibility: visible;
 			pointer-events: auto;
+		}
+	}
+}
+
+.mobile-top-nav{
+	z-index: 95;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: var(--primary);
+	color: #fff;
+	pointer-events: none;
+	visibility: hidden;
+	opacity: 0;
+	transition: all var(--t);
+	overflow-y: auto;
+	overscroll-behavior-y: contain;
+
+	&.opened{
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	.nav-inner{
+		padding: 138px 0 80px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.nav-menu{
+		display: grid;
+		grid-gap: 20px;
+		margin-bottom: 30px;
+
+		li{
+			a{
+				@include h2;
+				text-transform: uppercase;
+				color: inherit;
+				display: block;
+			}
+		}
+	}
+}
+
+.languages-list{
+	display: flex;
+	margin-bottom: 40px;
+
+	li{
+		margin-right: 10px;
+
+		&:last-child{
+			margin-right: 0;
+		}
+
+		a{
+			font-size: 14px;
+			line-height: 1.4;
+			text-transform: uppercase;
+			font-weight: bold;
+			display: block;
+			border-bottom: 1px solid transparent;
+			color: inherit;
+
+			&.current{
+				border-bottom-color: #fff;
+				pointer-events: none;
+			}
 		}
 	}
 }

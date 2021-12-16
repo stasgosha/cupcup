@@ -110,4 +110,35 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 991px){
+		padding-top: 102px;
+
+		.section-inner{
+			padding-bottom: 60px;
+			display: grid;
+			grid-gap: 20px;
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.section-map{
+			width: 100%;
+			padding-top: 42px;
+			padding-left: 0;
+			padding-right: 0;
+			max-width: unset;
+		}
+
+		.section-content{
+			max-width: unset;
+			padding-left: 20px;
+			margin-left: 0;
+
+			.section-caption{
+				&:first-child{
+					margin-bottom: 142px;
+				}
+			}
+		}
+	}
 }

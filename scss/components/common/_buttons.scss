@@ -12,7 +12,7 @@
 	transition: all var(--t);
 	cursor: pointer;
 	appearance: none;
-	white-space: nowrap;
+	// white-space: nowrap;
 
 	position: relative;
 	overflow: hidden;
@@ -24,7 +24,7 @@
 	color: #fff;
 
 	.btn-text{
-		padding: 15px 30px;
+		padding: 8px 30px;
 		position: relative;
 		display: block;
 
@@ -32,7 +32,7 @@
 			content: attr(data-text);
 			display: block;
 			position: absolute;
-			width: inherit;
+			width: 100%;
 			height: inherit;
 			padding: inherit;
 			left: 100%;

@@ -49,6 +49,14 @@
 			align-items: center;
 		}
 	}
+
+	@media screen and (max-width: 991px){
+		padding: 90px 0;
+
+		.section-grid{
+			grid-gap: 60px 20px;
+		}
+	}
 }
 
 .looking-for-a-job-card{
@@ -202,6 +210,35 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 991px){
+		--card-outer-padding: 26px;
+
+		.card-inner{
+			min-height: 282px;
+			padding: 40px;
+		}
+
+		.card-caption{
+			margin-right: -6px;
+		}
+
+		.card-lines{
+			.line{
+				.line-item{
+					font-size: 14px;
+					line-height: 18px;
+					margin: 0 6px;
+
+					&:after{
+						width: 22px;
+						height: 22px;
+						margin-left: 12px;
+					}
+				}
+			}
+		}
+	}
 }
 
 .about-delivery-component{
@@ -272,12 +309,25 @@
 	}
 
 	@media screen and (max-width: 1229px){
+		--gap: 20px;
+
 		.cmp-content{
 			padding-left: 40px;
 		}
 
 		.cmp-nav{
 			grid-gap: 15px;
+		}
+	}
+
+	@media screen and (max-width: 991px){
+		.cmp-content{
+			padding-left: 20px;
+		}
+
+		.section-caption,
+		.cmp-nav{
+			margin-bottom: 20px;
 		}
 	}
 }
@@ -369,6 +419,15 @@
 			&.lg-wide{
 				max-width: calc(100% - 25px * 2);
 			}
+		}
+	}
+
+	@media screen and (max-width: 991px){
+		--message-position: 30px;
+
+		.card-message{
+			max-width: calc(100% - 25px * 2);
+			padding: 18px;
 		}
 	}
 }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Кав’ярня у твоєму смартфоні | Cupcup</title>
+	<title>Кав’ярня у твоєму смартфоні | CupCup</title>
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,9 +21,10 @@
 					<div class="header-block">
 						<a href="#top" class="logo-block">
 							<img src="img/logo.svg" alt="Cupcup">
+							<img src="img/logo-white.svg" alt="" role="presentation" tabindex="-1" class="white">
 						</a>
 					</div>
-					<div class="header-block with-language-select">
+					<div class="header-block with-language-select md-hidden">
 						<nav class="top-nav">
 							<ul>
 								<li><a href="#how-to-use">як замовити</a></li>
@@ -47,10 +48,17 @@
 							</ul>
 						</div>
 					</div>
-					<div class="header-block">
+					<div class="header-block md-hidden">
 						<a href="#become-a-courier" class="btn">
 							<span class="btn-text" data-text="стати кур’єром">стати кур’єром</span>
 						</a>
+					</div>
+					<div class="header-block md-visible">
+						<button class="menu-opener" aria-label="Показати навігацію">
+							<span class="bar"></span>
+							<span class="bar"></span>
+							<span class="bar"></span>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -271,7 +279,7 @@
 												img/icons/heart@3x.png 3x" alt="">
 								</div>
 								<div class="card-content">
-									<h3 class="card-caption">Зустрічай кур'єра</h3>
+									<h3 class="card-caption">Зустрічай <br class="md-visible">кур'єра</h3>
 									<p>Лише 5 (п'ять) хвилин та бажане замовлення у вас в руках</p>
 								</div>
 							</div>
@@ -659,7 +667,7 @@
 										</div>
 										<div class="card-message bottom">
 											<img src="img/icons/lollypop.png" alt="" class="message-icon">
-											<p>Гіперлокальна доставка на швидких електросамокатах або пішки</p>
+											<p>Гіперлокальна <br class="md-visible">доставка на швидких електросамокатах або пішки</p>
 										</div>
 									</div>
 								</div>
@@ -858,6 +866,30 @@
 			</div>
 		</footer>
 	</div>
+
+	<nav class="mobile-top-nav">
+		<div class="nav-inner">
+			<div class="container">
+				<ul class="nav-menu">
+					<li><a href="#how-to-use">як замовити</a></li>
+					<li><a href="#reviews">наші клієнти</a></li>
+					<li><a href="#delivery-zone">зона доставки</a></li>
+					<li><a href="#become-a-courier">стати кур’єром</a></li>
+					<li><a href="#contacts">контакти</a></li>
+				</ul>
+						
+				<ul class="languages-list">
+					<li><a href="#" aria-label="Українська версія - вибрано" class="current">укр</a></li>
+					<li><a href="#" aria-label="Перейти на русскую версию">рус</a></li>
+					<li><a href="#" aria-label="Go to English version">eng</a></li>
+				</ul>
+				
+				<a href="#become-a-courier" class="btn">
+					<span class="btn-text" data-text="стати кур’єром">стати кур’єром</span>
+				</a>
+			</div>
+		</div>
+	</nav>
 
 	<!-- <div class="modal video-modal" id="video-modal" tabindex="-1">
 		<div class="modal-dialog">

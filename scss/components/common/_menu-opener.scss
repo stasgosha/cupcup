@@ -1,8 +1,8 @@
 .menu-opener{
 	display: flex;
 	flex-direction: column;
-	width: 20px;
-	height: 20px;
+	width: 30px;
+	height: 30px;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
@@ -10,12 +10,12 @@
 	background: transparent;
 	position: relative;
 
-	--gap: 5px;
-	--bar-width: 20px;
-	--bar-height: 2px;
-	--bar-fill: #3a3a3a;
-	--bar-fill-hover: #{ var(--primary) };
-	--bar-radius: 1px;
+	--gap: 4px;
+	--bar-width: 30px;
+	--bar-height: 4px;
+	--bar-fill: #282828;
+	--bar-fill-hover: var(--primary);
+	--bar-radius: 2px;
 
 	&:before{
 		content: '';
@@ -39,6 +39,7 @@
 
 		&:last-child{
 			margin-bottom: 0;
+			display: none;
 		}
 
 		&:nth-child(2){
@@ -72,6 +73,8 @@
 
 	&.active{
 		.bar{
+			background: #fff;
+
 			&:last-child,
 			&:first-child{
 				// width: 0;

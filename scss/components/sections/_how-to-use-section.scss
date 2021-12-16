@@ -15,6 +15,14 @@
 			grid-gap: 20px;
 		}
 	}
+
+	@media screen and (max-width: 991px){
+		padding: 125px 0 70px;
+
+		.section-grid{
+			grid-template-columns: 1fr 1fr;
+		}
+	}
 }
 
 .how-to-use-card{
@@ -86,6 +94,16 @@
 				width: 40px;
 				height: 40px;
 			}
+		}
+	}
+
+	@media screen and (max-width: 991px){
+		&:before{
+			padding-top: 316px;
+		}
+
+		.app-buttons-block{
+			max-width: 200px;
 		}
 	}
 
