@@ -105,3 +105,15 @@ picture, iframe, figure{
 	clip: rect(0 0 0 0);
 	overflow: hidden;
 }
+
+.draw-on-scroll{
+	visibility: hidden;
+
+	&.drawsvg-initialized{
+		visibility: visible;
+	}
+}
+
+.draw-on-hover{
+	transition: all .15s;
+}

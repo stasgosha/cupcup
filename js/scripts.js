@@ -70,11 +70,11 @@ document.addEventListener('DOMContentLoaded', function(){
 	let arrowsButtons = {
 		prevArrow: `<button type="button" class="slick-arrow slick-prev" aria-label="Previous">
 						<svg class="btn-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m19.47 29.03-8.94-8.95H30.5v-4.16H10.53l8.94-8.95-2.94-2.94L2.55 18l13.98 13.97 2.94-2.94Z" fill="#fff"/></svg>
-						<svg class="btn-outline" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 40"><path d="M9.25 14.08c-.78.93-13.98 11.82-4.92 19.53 9.06 7.72 52.11 7.24 55.83-15.35C63.87-4.34 19.64.66 14.76 4.9" stroke="#00DAD0" stroke-width="2" stroke-linecap="round"/></svg>
+						<svg class="btn-outline draw-on-hover" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 40"><path d="M9.25 14.08c-.78.93-13.98 11.82-4.92 19.53 9.06 7.72 52.11 7.24 55.83-15.35C63.87-4.34 19.64.66 14.76 4.9" stroke="#00DAD0" stroke-width="2" stroke-linecap="round"/></svg>
 					</button>`,
 		nextArrow: `<button type="button" class="slick-arrow slick-next" aria-label="Next">
 						<svg class="btn-icon" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path d="m16.53 29.03 2.94 2.94L33.45 18 19.47 4.03l-2.94 2.94 8.94 8.95H5.5v4.16h19.97l-8.94 8.95Z" fill="#fff"/></svg>
-						<svg class="btn-outline" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 40"><path d="M9.25 14.08c-.78.93-13.98 11.82-4.92 19.53 9.06 7.72 52.11 7.24 55.83-15.35C63.87-4.34 19.64.66 14.76 4.9" stroke="#00DAD0" stroke-width="2" stroke-linecap="round"/></svg>
+						<svg class="btn-outline draw-on-hover" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 40"><path d="M9.25 14.08c-.78.93-13.98 11.82-4.92 19.53 9.06 7.72 52.11 7.24 55.83-15.35C63.87-4.34 19.64.66 14.76 4.9" stroke="#00DAD0" stroke-width="2" stroke-linecap="round"/></svg>
 					</button>`
 	}
 
@@ -239,54 +239,76 @@ document.addEventListener('DOMContentLoaded', function(){
 		showModal( $(this).data('modal') );
 	});
 
-	// $('[data-video-modal]').click(function(e) {
-	// 	e.preventDefault();
-	// 	e.stopPropagation();
+	// Draw lines
+	$('.draw-on-scroll').each(function(i, el){
+		let isAnimated = false;
 
-	// 	let videoId = $(this).data('video-modal');
-	// 	let videoType = $(this).data('video-type');
+		let options = {};
+		let delay = 0;
+		let animateOnLoad = false;
 
-	// 	if (videoType == 'youtube') {
-	// 		$('#modal-video-iframe').removeClass('vimeo youtube mp4').addClass('youtube').append('<div class="video-iframe" id="' + videoId + '"></div>');
-	// 		createVideo(videoId, videoId);
-	// 	} else if (videoType == 'vimeo') {
-	// 		$('#modal-video-iframe').removeClass('vimeo youtube mp4').addClass('vimeo').html('<iframe class="video-iframe" allow="autoplay" src="https://player.vimeo.com/video/' + videoId + '?playsinline=1&autoplay=1&transparent=1&app_id=122963">');
-	// 	} else if (videoType == 'mp4'){
-	// 		$('#modal-video-iframe').removeClass('vimeo youtube mp4').addClass('vimeo').html(`<video src="${videoId}" playsinline autoplay controls></video>`);
-	// 	}
+		if ($(el).data('delay') && $(window).width() >= 768) {
+			delay = +$(el).data('delay');
+		}
 
-	// 	hideModal('.modal');
+		if ($(el).data('duration')) {
+			options.duration = +$(el).data('duration');
+		}
 
-	// 	showModal("#video-modal");
-	// });
+		if ($(el).data('stagger')) {
+			options.stagger = +$(el).data('stagger');
+		}
 
-	// var player;
+		if ($(el).data('reverse')) {
+			options.reverse = $(el).data('reverse') === 'true' ? true : false;
+		}
 
-	// function createVideo(videoBlockId, videoId) {
-	// 	player = new YT.Player(videoBlockId, {
-	// 		videoId: videoId,
-	// 		playerVars: {
-	// 			// 'autoplay':1,
-	// 			'autohide': 1,
-	// 			'showinfo': 0,
-	// 			'rel': 0,
-	// 			'loop': 1,
-	// 			'playsinline': 1,
-	// 			'fs': 0,
-	// 			'allowsInlineMediaPlayback': true
-	// 		},
-	// 		events: {
-	// 			'onReady': function(e) {
-	// 				// e.target.mute();
-	// 				// if ($(window).width() > 991) {
-	// 				setTimeout(function() {
-	// 					e.target.playVideo();
-	// 				}, 200);
-	// 				// }
-	// 			}
-	// 		}
-	// 	});
-	// }
+		if ($(el).data('animateOnLoad')) {
+			animateOnLoad = $(el).data('animateOnLoad') === 'true' ? true : false;
+		}
+
+		let svg = $(el).drawsvg({
+			duration: 1500,
+			...options
+		});
+
+		if (animateOnLoad) {
+			svg.drawsvg('animate');
+			isAnimated = true;
+		} else{
+
+			$(window).scroll(function(){
+				if ($(window).scrollTop() + $(window).height() * 0.8 > $(el).offset().top && !isAnimated) {
+					setTimeout(function(){
+						svg.drawsvg('animate');
+						isAnimated = true;
+					}, delay);
+				}
+			});
+		}
+	});
+
+	$('.draw-on-hover').each(function(i, el){
+		let svg = $(el).drawsvg({
+			duration: 150
+		});
+
+		$(el).hover(function(){
+			svg.drawsvg('animate');
+		}, function(){
+			svg.css({
+				opacity: 0
+			});
+
+			setTimeout(function(){
+				svg.drawsvg('progress', 0);
+
+				svg.css({
+					opacity: 1
+				});
+			}, 150);
+		});
+	});
 });
 
 
